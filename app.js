@@ -14,3 +14,23 @@ btn.addEventListener("click", (e) => {
   </li>`;
   todoInput.value = "";
 });
+
+todoInput.addEventListener("keydown", (e) => {
+  if (e.code === "Enter") {
+    btn.click();
+  }
+});
+
+todoUl.addEventListener("click", (e) => {
+  if (e.target.classList.contains("fa-trash")) {
+    e.target.parentElement.remove();
+  }
+
+  if (e.target.classList.contains("fa-check")) {
+    if (e.target.parentElement.classList.contains("checked")) {
+      e.target.parentElement.classList.remove("checked");
+    } else {
+      e.target.parentElement.classList.add("checked");
+    }
+  }
+});
